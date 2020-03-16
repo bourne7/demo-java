@@ -1,6 +1,6 @@
-package ThreadLocal;
+package CommonTest;
 
-public class ThreadLocalTest {
+public class TestThreadLocal {
 
     ThreadLocal<Long> longLocal = new ThreadLocal<>();
     ThreadLocal<String> stringLocal = new ThreadLocal<>();
@@ -19,7 +19,7 @@ public class ThreadLocalTest {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        final ThreadLocalTest threadLocalTest = new ThreadLocalTest();
+        final TestThreadLocal threadLocalTest = new TestThreadLocal();
 
         threadLocalTest.set();
         System.out.println(threadLocalTest.getLong());

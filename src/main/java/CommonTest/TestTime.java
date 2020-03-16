@@ -1,11 +1,11 @@
-package Time;
+package CommonTest;
 
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
-public class test1 {
+public class TestTime {
     /**
      * 个人觉得最好直接用 LocalDateTime 进行所有操作以后再转成需要的格式。
      */

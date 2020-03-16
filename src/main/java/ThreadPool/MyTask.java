@@ -1,5 +1,7 @@
 package ThreadPool;
 
+import java.util.concurrent.TimeUnit;
+
 public class MyTask implements Runnable {
     private int taskNum;
 
@@ -9,9 +11,11 @@ public class MyTask implements Runnable {
 
     @Override
     public void run() {
-        System.out.println("正在执行task " + taskNum);
+        System.out.println("进入 MyTask " + taskNum);
         try {
-            Thread.currentThread().sleep(5000);
+            int waitTime = 3;
+            TimeUnit.SECONDS.sleep(waitTime);
+            System.out.println("等待了 " + waitTime + " 秒以后。MyTask " + taskNum);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

@@ -6,10 +6,21 @@ apply plugin: 'java'
 sourceCompatibility = 1.8
 
 repositories {
+    maven { url 'https://maven.aliyun.com/nexus/content/groups/public/' }
     mavenCentral()
 }
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
+
+    // https://mvnrepository.com/artifact/org.projectlombok/lombok
+    compile group: 'org.projectlombok', name: 'lombok', version: '+'
+    annotationProcessor group: 'org.projectlombok', name: 'lombok', version: '+'
+
+    // https://mvnrepository.com/artifact/com.google.guava/guava
+    compile group: 'com.google.guava', name: 'guava', version: '+'
+
+    // https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '+'
 
 }

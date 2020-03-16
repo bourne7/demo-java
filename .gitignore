@@ -35,3 +35,5 @@ gradlew.bat
 /dist/
 /nbdist/
 /.nb-gradle/
+
+ignore
