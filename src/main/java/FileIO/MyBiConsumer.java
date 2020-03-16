@@ -1,10 +1,10 @@
-package Color;
+package FileIO;
 
 import java.util.Map;
 import java.util.Set;
 import java.util.function.BiConsumer;
 
-public class Tennis implements BiConsumer<Map.Entry<Integer, Set<Integer>>, Map.Entry<Integer, Set<Integer>>> {
+public class MyBiConsumer implements BiConsumer<Map.Entry<Integer, Set<Integer>>, Map.Entry<Integer, Set<Integer>>> {
 
     public static void main(String[] args) throws Exception {
 

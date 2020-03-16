@@ -5,23 +5,17 @@ import java.util.*;
 
 public class PaintPoints {
 
-    // gc_4_1 2
-    // gc_20_1 3
-    // gc_50_5 11
-    // gc_50_7 17
-    // gc_100_5 19
-    // gc_1000_5 118
-
     private static String FILE_PATH;
     private static String FILE_PATH_OUT;
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
 
-        String resourcePath = new File(".").getCanonicalPath() + "/src/main/resources";
-        FILE_PATH = resourcePath + "/color_point/gc_100_5";
+        // 读取 resource 文件夹里面的 原始数据
+        FILE_PATH = PaintPoints.class.getClassLoader().getResource("color_point/gc_100_5").getFile();
         FILE_PATH_OUT = FILE_PATH + "_solution.txt";
 
         System.out.println(FILE_PATH);
+        System.out.println(FILE_PATH_OUT);
 
         PaintPoints paintPoints = new PaintPoints();
 
@@ -78,7 +72,7 @@ public class PaintPoints {
 
         } while (original_map.size() > 0);
 
-        System.out.println("所用的颜色: " + current_color);
+        System.out.println("color used: " + current_color);
 
         return result_map;
     }
@@ -94,7 +88,10 @@ public class PaintPoints {
             return -1;
         }
     }
-
+    
+    /**
+     * 校验数据
+     */
     private void validate(Map<Integer, Integer> result_map) {
         String line;
         try {
@@ -117,7 +114,7 @@ public class PaintPoints {
     }
 
     private Map<Integer, Set<Integer>> readMethod(String fileName) {
-        Map<Integer, Set<Integer>> original_map = new TreeMap<>();
+        Map<Integer, Set<Integer>> rowDataMap = new TreeMap<>();
         String line;
         try {
             BufferedReader in = new BufferedReader(new FileReader(fileName));
@@ -127,18 +124,18 @@ public class PaintPoints {
                 String[] array = line.split(" ");
                 Integer int1 = Integer.parseInt(array[0]);
                 Integer int2 = Integer.parseInt(array[1]);
-                add_to_data_map(int1, int2, original_map);
-                add_to_data_map(int2, int1, original_map);
+                addEdgeToDataMap(int1, int2, rowDataMap);
+                addEdgeToDataMap(int2, int1, rowDataMap);
                 line = in.readLine();
             }
             in.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return original_map;
+        return rowDataMap;
     }
 
-    private void add_to_data_map(Integer point, Integer point_linked, Map<Integer, Set<Integer>> original_map) {
+    private void addEdgeToDataMap(Integer point, Integer point_linked, Map<Integer, Set<Integer>> original_map) {
         if (original_map.get(point) == null) {
             Set<Integer> tempSet = new HashSet<>();
             tempSet.add(point_linked);

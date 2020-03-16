@@ -24,3 +24,6 @@ dependencies {
     compile group: 'org.apache.commons', name: 'commons-lang3', version: '+'
 
 }
+
+compileJava.options.encoding = 'UTF-8'
+compileTestJava.options.encoding = 'UTF-8'

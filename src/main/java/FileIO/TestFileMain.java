@@ -1,7 +1,5 @@
 package FileIO;
 
-import Color.Tennis;
-
 import java.io.*;
 import java.net.URL;
 import java.time.LocalDateTime;
@@ -162,7 +160,7 @@ public class TestFileMain {
 
 
     private static void readFileInResource(String relativePath) {
-        URL url = Tennis.class.getResource(relativePath);
+        URL url = MyBiConsumer.class.getResource(relativePath);
         File file = new File(url.getFile());
         try {
             BufferedReader in = new BufferedReader(new FileReader(file));
